@@ -1,0 +1,298 @@
+{
+    "apiVersion": "apiextensions.k8s.io/v1",
+    "kind": "CustomResourceDefinition",
+    "metadata": {
+        "annotations": {
+            "controller-gen.kubebuilder.io/version": "v0.15.0",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apiextensions.k8s.io/v1\",\"kind\":\"CustomResourceDefinition\",\"metadata\":{\"annotations\":{\"controller-gen.kubebuilder.io/version\":\"v0.15.0\"},\"labels\":{\"app.kubernetes.io/instance\":\"longhorn\",\"app.kubernetes.io/name\":\"longhorn\",\"app.kubernetes.io/version\":\"v1.8.1\",\"longhorn-manager\":\"\"},\"name\":\"backuptargets.longhorn.io\"},\"spec\":{\"conversion\":{\"strategy\":\"Webhook\",\"webhook\":{\"clientConfig\":{\"service\":{\"name\":\"longhorn-conversion-webhook\",\"namespace\":\"longhorn-system\",\"path\":\"/v1/webhook/conversion\",\"port\":9501}},\"conversionReviewVersions\":[\"v1beta2\",\"v1beta1\"]}},\"group\":\"longhorn.io\",\"names\":{\"kind\":\"BackupTarget\",\"listKind\":\"BackupTargetList\",\"plural\":\"backuptargets\",\"shortNames\":[\"lhbt\"],\"singular\":\"backuptarget\"},\"scope\":\"Namespaced\",\"versions\":[{\"additionalPrinterColumns\":[{\"description\":\"The backup target URL\",\"jsonPath\":\".spec.backupTargetURL\",\"name\":\"URL\",\"type\":\"string\"},{\"description\":\"The backup target credential secret\",\"jsonPath\":\".spec.credentialSecret\",\"name\":\"Credential\",\"type\":\"string\"},{\"description\":\"The backup target poll interval\",\"jsonPath\":\".spec.pollInterval\",\"name\":\"LastBackupAt\",\"type\":\"string\"},{\"description\":\"Indicate whether the backup target is available or not\",\"jsonPath\":\".status.available\",\"name\":\"Available\",\"type\":\"boolean\"},{\"description\":\"The backup target last synced time\",\"jsonPath\":\".status.lastSyncedAt\",\"name\":\"LastSyncedAt\",\"type\":\"string\"}],\"name\":\"v1beta1\",\"schema\":{\"openAPIV3Schema\":{\"description\":\"BackupTarget is where Longhorn stores backup target object.\",\"properties\":{\"apiVersion\":{\"description\":\"APIVersion defines the versioned schema of this representation of an object.\\nServers should convert recognized schemas to the latest internal value, and\\nmay reject unrecognized values.\\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources\",\"type\":\"string\"},\"kind\":{\"description\":\"Kind is a string value representing the REST resource this object represents.\\nServers may infer this from the endpoint the client submits requests to.\\nCannot be updated.\\nIn CamelCase.\\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\",\"type\":\"string\"},\"metadata\":{\"type\":\"object\"},\"spec\":{\"x-kubernetes-preserve-unknown-fields\":true},\"status\":{\"x-kubernetes-preserve-unknown-fields\":true}},\"type\":\"object\"}},\"served\":true,\"storage\":false,\"subresources\":{\"status\":{}}},{\"additionalPrinterColumns\":[{\"description\":\"The backup target URL\",\"jsonPath\":\".spec.backupTargetURL\",\"name\":\"URL\",\"type\":\"string\"},{\"description\":\"The backup target credential secret\",\"jsonPath\":\".spec.credentialSecret\",\"name\":\"Credential\",\"type\":\"string\"},{\"description\":\"The backup target poll interval\",\"jsonPath\":\".spec.pollInterval\",\"name\":\"LastBackupAt\",\"type\":\"string\"},{\"description\":\"Indicate whether the backup target is available or not\",\"jsonPath\":\".status.available\",\"name\":\"Available\",\"type\":\"boolean\"},{\"description\":\"The backup target last synced time\",\"jsonPath\":\".status.lastSyncedAt\",\"name\":\"LastSyncedAt\",\"type\":\"string\"}],\"name\":\"v1beta2\",\"schema\":{\"openAPIV3Schema\":{\"description\":\"BackupTarget is where Longhorn stores backup target object.\",\"properties\":{\"apiVersion\":{\"description\":\"APIVersion defines the versioned schema of this representation of an object.\\nServers should convert recognized schemas to the latest internal value, and\\nmay reject unrecognized values.\\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources\",\"type\":\"string\"},\"kind\":{\"description\":\"Kind is a string value representing the REST resource this object represents.\\nServers may infer this from the endpoint the client submits requests to.\\nCannot be updated.\\nIn CamelCase.\\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\",\"type\":\"string\"},\"metadata\":{\"type\":\"object\"},\"spec\":{\"description\":\"BackupTargetSpec defines the desired state of the Longhorn backup target\",\"properties\":{\"backupTargetURL\":{\"description\":\"The backup target URL.\",\"type\":\"string\"},\"credentialSecret\":{\"description\":\"The backup target credential secret.\",\"type\":\"string\"},\"pollInterval\":{\"description\":\"The interval that the cluster needs to run sync with the backup target.\",\"type\":\"string\"},\"syncRequestedAt\":{\"description\":\"The time to request run sync the remote backup target.\",\"format\":\"date-time\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"description\":\"BackupTargetStatus defines the observed state of the Longhorn backup target\",\"properties\":{\"available\":{\"description\":\"Available indicates if the remote backup target is available or not.\",\"type\":\"boolean\"},\"conditions\":{\"description\":\"Records the reason on why the backup target is unavailable.\",\"items\":{\"properties\":{\"lastProbeTime\":{\"description\":\"Last time we probed the condition.\",\"type\":\"string\"},\"lastTransitionTime\":{\"description\":\"Last time the condition transitioned from one status to another.\",\"type\":\"string\"},\"message\":{\"description\":\"Human-readable message indicating details about last transition.\",\"type\":\"string\"},\"reason\":{\"description\":\"Unique, one-word, CamelCase reason for the condition's last transition.\",\"type\":\"string\"},\"status\":{\"description\":\"Status is the status of the condition.\\nCan be True, False, Unknown.\",\"type\":\"string\"},\"type\":{\"description\":\"Type is the type of the condition.\",\"type\":\"string\"}},\"type\":\"object\"},\"nullable\":true,\"type\":\"array\"},\"lastSyncedAt\":{\"description\":\"The last time that the controller synced with the remote backup target.\",\"format\":\"date-time\",\"nullable\":true,\"type\":\"string\"},\"ownerID\":{\"description\":\"The node ID on which the controller is responsible to reconcile this backup target CR.\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}},\"served\":true,\"storage\":true,\"subresources\":{\"status\":{}}}]}}\n"
+        },
+        "creationTimestamp": "2025-04-18T18:59:17Z",
+        "deletionGracePeriodSeconds": 0,
+        "deletionTimestamp": "2025-04-18T20:07:47Z",
+        "finalizers": [
+            "customresourcecleanup.apiextensions.k8s.io"
+        ],
+        "generation": 3,
+        "labels": {
+            "app.kubernetes.io/instance": "longhorn",
+            "app.kubernetes.io/name": "longhorn",
+            "app.kubernetes.io/version": "v1.8.1",
+            "longhorn-manager": ""
+        },
+        "name": "backuptargets.longhorn.io",
+        "resourceVersion": "60084",
+        "uid": "9cef13d6-2d7a-41f3-a3aa-825de197e655"
+    },
+    "spec": {
+        "conversion": {
+            "strategy": "Webhook",
+            "webhook": {
+                "clientConfig": {
+                    "caBundle": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ2RENDQVdPZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQkdNUnd3R2dZRFZRUUtFeE5rZVc1aGJXbGoKYkdsemRHVnVaWEl0YjNKbk1TWXdKQVlEVlFRRERCMWtlVzVoYldsamJHbHpkR1Z1WlhJdFkyRkFNVGMwTlRBdwpPRE0yT1RBZUZ3MHlOVEEwTVRneU1ETXlORGxhRncwek5UQTBNVFl5TURNeU5EbGFNRVl4SERBYUJnTlZCQW9UCkUyUjVibUZ0YVdOc2FYTjBaVzVsY2kxdmNtY3hKakFrQmdOVkJBTU1IV1I1Ym1GdGFXTnNhWE4wWlc1bGNpMWoKWVVBeE56UTFNREE0TXpZNU1Ga3dFd1lIS29aSXpqMENBUVlJS29aSXpqMERBUWNEUWdBRTJuTlV2NU1LSzk0UgpFNWFlL1BnNU94b0xwaHVPeW9WbC9raS9ualMxMks0ZE95MmpiR1ZSVWNVaDZEdW5kMGZlQ1hJY1dLQ1BGcUFMCnp6M3hOeTdZSDZOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWUQKVlIwT0JCWUVGR3pta0wxTmN0aitTSFRMd24rTU9RaWNYSFZxTUFvR0NDcUdTTTQ5QkFNQ0EwY0FNRVFDSURyNQpqdzZLblh3bjRJRzFGWlRPVVh3cEhFSDdOSXZ4c3JFVjhsenRHZk1wQWlCVisvOHdLcWJaTXAwQU9JdDE4RGpnCklTd3RMMTZPNm5yVXdVcG1JZ2hrSlE9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+                    "service": {
+                        "name": "longhorn-conversion-webhook",
+                        "namespace": "longhorn-system",
+                        "path": "/v1/webhook/conversion",
+                        "port": 9501
+                    }
+                },
+                "conversionReviewVersions": [
+                    "v1beta2",
+                    "v1beta1"
+                ]
+            }
+        },
+        "group": "longhorn.io",
+        "names": {
+            "kind": "BackupTarget",
+            "listKind": "BackupTargetList",
+            "plural": "backuptargets",
+            "shortNames": [
+                "lhbt"
+            ],
+            "singular": "backuptarget"
+        },
+        "scope": "Namespaced",
+        "versions": [
+            {
+                "additionalPrinterColumns": [
+                    {
+                        "description": "The backup target URL",
+                        "jsonPath": ".spec.backupTargetURL",
+                        "name": "URL",
+                        "type": "string"
+                    },
+                    {
+                        "description": "The backup target credential secret",
+                        "jsonPath": ".spec.credentialSecret",
+                        "name": "Credential",
+                        "type": "string"
+                    },
+                    {
+                        "description": "The backup target poll interval",
+                        "jsonPath": ".spec.pollInterval",
+                        "name": "LastBackupAt",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Indicate whether the backup target is available or not",
+                        "jsonPath": ".status.available",
+                        "name": "Available",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "The backup target last synced time",
+                        "jsonPath": ".status.lastSyncedAt",
+                        "name": "LastSyncedAt",
+                        "type": "string"
+                    }
+                ],
+                "name": "v1beta1",
+                "schema": {
+                    "openAPIV3Schema": {
+                        "description": "BackupTarget is where Longhorn stores backup target object.",
+                        "properties": {
+                            "apiVersion": {
+                                "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+                                "type": "string"
+                            },
+                            "kind": {
+                                "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                                "type": "string"
+                            },
+                            "metadata": {
+                                "type": "object"
+                            },
+                            "spec": {
+                                "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "status": {
+                                "x-kubernetes-preserve-unknown-fields": true
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "served": true,
+                "storage": false,
+                "subresources": {
+                    "status": {}
+                }
+            },
+            {
+                "additionalPrinterColumns": [
+                    {
+                        "description": "The backup target URL",
+                        "jsonPath": ".spec.backupTargetURL",
+                        "name": "URL",
+                        "type": "string"
+                    },
+                    {
+                        "description": "The backup target credential secret",
+                        "jsonPath": ".spec.credentialSecret",
+                        "name": "Credential",
+                        "type": "string"
+                    },
+                    {
+                        "description": "The backup target poll interval",
+                        "jsonPath": ".spec.pollInterval",
+                        "name": "LastBackupAt",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Indicate whether the backup target is available or not",
+                        "jsonPath": ".status.available",
+                        "name": "Available",
+                        "type": "boolean"
+                    },
+                    {
+                        "description": "The backup target last synced time",
+                        "jsonPath": ".status.lastSyncedAt",
+                        "name": "LastSyncedAt",
+                        "type": "string"
+                    }
+                ],
+                "name": "v1beta2",
+                "schema": {
+                    "openAPIV3Schema": {
+                        "description": "BackupTarget is where Longhorn stores backup target object.",
+                        "properties": {
+                            "apiVersion": {
+                                "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+                                "type": "string"
+                            },
+                            "kind": {
+                                "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                                "type": "string"
+                            },
+                            "metadata": {
+                                "type": "object"
+                            },
+                            "spec": {
+                                "description": "BackupTargetSpec defines the desired state of the Longhorn backup target",
+                                "properties": {
+                                    "backupTargetURL": {
+                                        "description": "The backup target URL.",
+                                        "type": "string"
+                                    },
+                                    "credentialSecret": {
+                                        "description": "The backup target credential secret.",
+                                        "type": "string"
+                                    },
+                                    "pollInterval": {
+                                        "description": "The interval that the cluster needs to run sync with the backup target.",
+                                        "type": "string"
+                                    },
+                                    "syncRequestedAt": {
+                                        "description": "The time to request run sync the remote backup target.",
+                                        "format": "date-time",
+                                        "nullable": true,
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "status": {
+                                "description": "BackupTargetStatus defines the observed state of the Longhorn backup target",
+                                "properties": {
+                                    "available": {
+                                        "description": "Available indicates if the remote backup target is available or not.",
+                                        "type": "boolean"
+                                    },
+                                    "conditions": {
+                                        "description": "Records the reason on why the backup target is unavailable.",
+                                        "items": {
+                                            "properties": {
+                                                "lastProbeTime": {
+                                                    "description": "Last time we probed the condition.",
+                                                    "type": "string"
+                                                },
+                                                "lastTransitionTime": {
+                                                    "description": "Last time the condition transitioned from one status to another.",
+                                                    "type": "string"
+                                                },
+                                                "message": {
+                                                    "description": "Human-readable message indicating details about last transition.",
+                                                    "type": "string"
+                                                },
+                                                "reason": {
+                                                    "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                                                    "type": "string"
+                                                },
+                                                "status": {
+                                                    "description": "Status is the status of the condition.\nCan be True, False, Unknown.",
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "description": "Type is the type of the condition.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "nullable": true,
+                                        "type": "array"
+                                    },
+                                    "lastSyncedAt": {
+                                        "description": "The last time that the controller synced with the remote backup target.",
+                                        "format": "date-time",
+                                        "nullable": true,
+                                        "type": "string"
+                                    },
+                                    "ownerID": {
+                                        "description": "The node ID on which the controller is responsible to reconcile this backup target CR.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "served": true,
+                "storage": true,
+                "subresources": {
+                    "status": {}
+                }
+            }
+        ]
+    },
+    "status": {
+        "acceptedNames": {
+            "kind": "BackupTarget",
+            "listKind": "BackupTargetList",
+            "plural": "backuptargets",
+            "shortNames": [
+                "lhbt"
+            ],
+            "singular": "backuptarget"
+        },
+        "conditions": [
+            {
+                "lastTransitionTime": "2025-04-18T18:59:17Z",
+                "message": "no conflicts found",
+                "reason": "NoConflicts",
+                "status": "True",
+                "type": "NamesAccepted"
+            },
+            {
+                "lastTransitionTime": "2025-04-18T18:59:17Z",
+                "message": "the initial names have been accepted",
+                "reason": "InitialNamesAccepted",
+                "status": "True",
+                "type": "Established"
+            },
+            {
+                "lastTransitionTime": "2025-04-18T20:07:47Z",
+                "message": "CustomResource deletion is in progress",
+                "reason": "InstanceDeletionInProgress",
+                "status": "True",
+                "type": "Terminating"
+            }
+        ],
+        "storedVersions": [
+            "v1beta2"
+        ]
+    }
+}
